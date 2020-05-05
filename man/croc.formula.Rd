@@ -13,9 +13,9 @@
 
 \item{model}{a character string specifying the model for the conave ROC curve, one of PH, PrevH, PBN, Emprical.}
 
-\item{subset}{expression indicating which subset of the rows of data should be used in the fit. All observations are included by default.}
+\item{subset}{an expression indicating which subset of the rows of data should be used in the fit. All observations are included by default.}
 
-\item{weights}{vector of case weights.}
+\item{weights}{a vector of case weights.}
 }
 \value{
 an object of class coxph and croc representing the fit.

@@ -15,5 +15,5 @@ ph.fit(x, y, ...)
 an object of class coxph representing the fit.
 }
 \description{
-This function fit the PH model given outcome y and covariates x
+This function fits the PH model given outcome y and covariates x
 }

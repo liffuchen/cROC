@@ -15,5 +15,5 @@ prevh.fit(x, y, ...)
 an object of class coxph representing the fit.
 }
 \description{
-This function fit the PrevH model given outcome y and covariates x
+This function fits the PrevH model given outcome y and covariates x
 }
