@@ -1,10 +1,10 @@
 #' Fit Proportional Reversed Hazards (PrevH) model
 #'
-#' This function fit the PrevH model given outcome y and covariates x
+#' This function fits the PrevH model given outcome y and covariates x
 #'
 #' @param x a matix of predictors. This should not include an intercept and already contains interactions and so on.
 #' @param y a numeric vector containing the outcome (no censoring for now).
-#' @return an object of class coxph representing the fit. 
+#' @return an object of class coxph representing the fit.
 #' @export
 prevh.fit <- function(x, y, ...)
 {
@@ -14,11 +14,11 @@ prevh.fit <- function(x, y, ...)
 
 #' Fit Proportional Hazards (PH) model
 #'
-#' This function fit the PH model given outcome y and covariates x
+#' This function fits the PH model given outcome y and covariates x
 #'
 #' @param x a matix of predictors. This should not include an intercept and already contains interactions and so on.
 #' @param y a numeric vector containing the outcome (no censoring for now).
-#' @return an object of class coxph representing the fit. 
+#' @return an object of class coxph representing the fit.
 #' @export
 ph.fit <- function(x, y, ...)
 {
@@ -58,9 +58,9 @@ croc.default <- function(x,y,model, ...) {
 #' @param formula a formula object, with the response on the left of a ~ operator, and the terms on the right.
 #' @param data a data.frame in which to interpret the variables named in the formula, or in the subset and the weights argument.
 #' @param model a character string specifying the model for the conave ROC curve, one of PH, PrevH, PBN, Emprical.
-#' @param subset expression indicating which subset of the rows of data should be used in the fit. All observations are included by default.
-#' @param weights vector of case weights.
-#' @return an object of class coxph and croc representing the fit. 
+#' @param subset an expression indicating which subset of the rows of data should be used in the fit. All observations are included by default.
+#' @param weights a vector of case weights.
+#' @return an object of class coxph and croc representing the fit.
 #' @export
 croc.formula <- function(formula, data, model=c("PH","PrevH"), subset, weights, na.action, ...)
 {
@@ -74,7 +74,7 @@ croc.formula <- function(formula, data, model=c("PH","PrevH"), subset, weights, 
   mf <- eval(mf, parent.frame())
   if (nrow(mf) == 0) stop("No observations in data")
   Terms <- terms(mf)
-  
+
   Y <- model.extract(mf, "response")
   contrast.arg <- NULL
   attr(Terms, "intercept") <- 1
@@ -83,9 +83,9 @@ croc.formula <- function(formula, data, model=c("PH","PrevH"), subset, weights, 
   adrop <- c(0, untangle.specials(Terms, "strata")$terms)
   xdrop <- Xatt$assign %in% adrop
   X <- X[, !xdrop, drop = FALSE]
-  
+
   fit <- croc.default(X,Y,model)
-  
+
   fit$call <- Call
   class(fit) <- c("croc","coxph")
   return(fit)
@@ -117,7 +117,7 @@ print.croc <- function(x, digits=max(1L, getOption("digits") - 3L), signif.stars
   names(coef) <- sub("^.","",names(coef))
   se <- sqrt(diag(x$var))
   if(is.null(coef) | is.null(se)) stop("Input is not valid")
-  
+
   if (is.null(x$naive.var)) {
     tmp <- cbind(coef, exp(coef), se, coef/se, pchisq((coef/se)^2, 1, lower.tail=FALSE))
     dimnames(tmp) <- list(names(coef), c("coef", "exp(coef)","se(coef)", "z", "p"))
@@ -128,14 +128,14 @@ print.croc <- function(x, digits=max(1L, getOption("digits") - 3L), signif.stars
     dimnames(tmp) <- list(names(coef), c("coef", "exp(coef)", "se(coef)", "robust se", "z", "p"))
   }
   printCoefmat(tmp, digits=digits, P.values=TRUE, has.Pvalue=TRUE,signif.stars = signif.stars, ...)
-  
+
   logtest <- -2 * (x$loglik[1] - x$loglik[2])
   if (is.null(x$df)) df <- sum(!is.na(coef))
   else  df <- round(sum(x$df),2)
   cat("\n")
   cat("Likelihood ratio test=", format(round(logtest, 2)), "  on ",
-      df, " df,", " p=", 
-      format.pval(pchisq(logtest, df, lower.tail=FALSE), digits=digits), 
+      df, " df,", " p=",
+      format.pval(pchisq(logtest, df, lower.tail=FALSE), digits=digits),
       "\n",  sep="")
   omit <- x$na.action
   cat("Total sample size:", x$n)
