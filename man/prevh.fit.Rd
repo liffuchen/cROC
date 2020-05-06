@@ -7,7 +7,7 @@
 prevh.fit(x, y, ...)
 }
 \arguments{
-\item{x}{a matix of predictors. This should not include an intercept and already contains interactions and so on.}
+\item{x}{a matix of predictors. This should not include an intercept.}
 
 \item{y}{a numeric vector containing the outcome (no censoring for now).}
 }

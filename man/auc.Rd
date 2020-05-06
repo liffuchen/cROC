@@ -2,7 +2,7 @@
 % Please edit documentation in R/AUCfunctions.R
 \name{auc}
 \alias{auc}
-\title{This function extracts auc (se) and ROC curve estimates from PH and PrevH model fits with <= 2 covariates}
+\title{This function extracts auc (se) and ROC curve estimates from PHroc and PrHroc model fits}
 \usage{
 auc(x1 = 20, x2 = NULL, fit, ROC = FALSE, ngrid = 100)
 }
@@ -21,5 +21,5 @@ auc(x1 = 20, x2 = NULL, fit, ROC = FALSE, ngrid = 100)
 either a vector of auc estimates or (if ROC = TRUE) a list of a vector of auc estimates and dataframe of FPR and TPR.
 }
 \description{
-This function extracts auc (se) and ROC curve estimates from PH and PrevH model fits with <= 2 covariates
+This function extracts auc (se) and ROC curve estimates from PHroc and PrHroc model fits
 }
