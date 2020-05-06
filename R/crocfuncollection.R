@@ -2,7 +2,7 @@
 #'
 #' This function fits the PrevH model given outcome y and covariates x
 #'
-#' @param x a matix of predictors. This should not include an intercept and already contains interactions and so on.
+#' @param x a matix of predictors. This should not include an intercept.
 #' @param y a numeric vector containing the outcome (no censoring for now).
 #' @return an object of class coxph representing the fit.
 #' @export
@@ -16,7 +16,7 @@ prevh.fit <- function(x, y, ...)
 #'
 #' This function fits the PH model given outcome y and covariates x
 #'
-#' @param x a matix of predictors. This should not include an intercept and already contains interactions and so on.
+#' @param x a matix of predictors. This should not include an intercept.
 #' @param y a numeric vector containing the outcome (no censoring for now).
 #' @return an object of class coxph representing the fit.
 #' @export
