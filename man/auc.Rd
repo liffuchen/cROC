@@ -4,7 +4,14 @@
 \alias{auc}
 \title{This function extracts auc (se) and ROC curve estimates from PHroc and PrHroc model fits}
 \usage{
-auc(x1 = 20, x2 = NULL, fit, model = "PH", ROC = FALSE, ngrid = 100)
+auc(
+  x1 = 20,
+  x2 = NULL,
+  fit,
+  model = c("PH", "PrevH"),
+  ROC = FALSE,
+  ngrid = 100
+)
 }
 \arguments{
 \item{x1}{a value of covariate x1 at which to estimate auc and ROC curve. Can be absent.}

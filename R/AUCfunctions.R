@@ -1,5 +1,7 @@
 #' This function extracts auc (se) and ROC curve estimates from PHroc and PrHroc model fits
 #'
+#' xxx
+#'
 #' @param x1 a value of covariate x1 at which to estimate auc and ROC curve. Can be absent.
 #' @param x2 a value of covariate x2 at which to estimate auc and ROC curve. Can be absent.
 #' @param fit a coxph/croc object of model fit.
