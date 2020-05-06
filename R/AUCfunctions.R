@@ -2,9 +2,6 @@
 #'
 #' This function extracts auc (se) and ROC curve estimates from PHroc and PrHroc model fits with <= 2 covariates.
 #'
-#' Gonen and Heller's Lehmann family of ROC curves (2010) assumes that code(h(y) = h_0(y)exp(b1*d + b2*x)) where code(y),
-#' code(d), and code(x) are, respectively, the test score, the disease indicator, and the covariate.
-#'
 #' @param x1 a value of covariate x1 at which to estimate auc and ROC curve. Can be absent.
 #' @param x2 a value of covariate x2 at which to estimate auc and ROC curve. Can be absent.
 #' @param fit a coxph/croc object of model fit.
